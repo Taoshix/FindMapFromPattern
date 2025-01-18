@@ -4,8 +4,8 @@ import zipfile
 from datetime import timedelta
 from datetime import datetime
 
-osu_directory = 'D:/Spil/osu!/Songs'
-#osu_directory = 'D:/Downloads/2015(osu!)'
+osu_directory = os.path.join(os.getenv('APPDATA'), 'osu!/Songs')
+#osu_directory = 'D:/Spil/osu!/Songs'
 file_extension = '.osu'
 leeway = 1
 
@@ -14,17 +14,6 @@ class HitObject:
         self.x = x
         self.y = y
         self.time = time
-
-def parse_reference_to_hitobjects(reference):
-    hit_objects = []
-    for comment in reference:
-        parts = comment.strip().split(',')
-        x = int(parts[0])
-        y = int(parts[1])
-        time = int(parts[2])
-        hit_object = HitObject(x, y, time)
-        hit_objects.append(hit_object)
-    return hit_objects
 
 def calculate_time_differences(hit_objects):
     time_differences = []
@@ -74,11 +63,13 @@ def parse_hitobjects_from_file(file_path):
             print(f"Error parsing file: {file_path}")
     return hit_objects
 
+def load_reference_from_file(file_path):
+    return parse_hitobjects_from_file(file_path)
+
 def find_pattern_in_files(reference):
     print(f"Loading reference pattern with {len(reference)} hit objects...")
     print(f"Timing leeway: {leeway}ms")
-    hit_objects_from_reference = parse_reference_to_hitobjects(reference)
-    time_differences_from_reference = calculate_time_differences(hit_objects_from_reference)
+    time_differences_from_reference = calculate_time_differences(reference)
     
     print(f"Loading all osu files in {osu_directory}...")
     osu_files = traverse_files(osu_directory, file_extension)
@@ -91,7 +82,7 @@ def find_pattern_in_files(reference):
             files_per_second = i / elapsed_time
             print(f"Checked {i} maps... ({files_per_second:.2f} maps per second)")
         hit_objects_from_file = parse_hitobjects_from_file(file_path)
-        if len(hit_objects_from_file) < len(hit_objects_from_reference):
+        if len(hit_objects_from_file) < len(reference):
             continue
         time_differences_from_file = calculate_time_differences(hit_objects_from_file)
         
@@ -112,43 +103,8 @@ def find_pattern_in_files(reference):
     formatted_time = f"{int(hours):02}:{int(minutes):02}:{seconds:05.2f}"
     print(f"Done Searching. Time taken: {formatted_time}")
 
-# x, y, time, type, hit_sound, extras we dont care about
-reference = [
-    "297,189,162,5,0,0:0:0:0:",
-    "297,189,243,1,0,0:0:0:0:",
-    "297,189,324,1,0,0:0:0:0:",
-    "334,159,486,1,0,0:0:0:0:",
-    "357,131,648,5,0,0:0:0:0:",
-    "357,131,810,1,0,0:0:0:0:",
-    "277,137,972,2,0,L|361:183,1,70",
-    "357,131,1297,1,0,0:0:0:0:",
-    "357,131,1459,1,0,0:0:0:0:",
-    "277,137,1621,2,0,L|350:175,1,70",
-    "357,131,1945,1,0,0:0:0:0:",
-    "376,107,2107,1,0,0:0:0:0:",
-    "376,107,2270,1,0,0:0:0:0:",
-    "376,107,2432,1,0,0:0:0:0:",
-    "277,137,2594,2,0,L|356:177,1,70",
-    "376,107,2918,1,0,0:0:0:0:",
-    "376,107,3080,1,0,0:0:0:0:",
-    "277,137,3243,2,0,L|369:180,1,70",
-    "376,107,3567,1,0,0:0:0:0:",
-    "389,104,3729,1,0,0:0:0:0:",
-    "389,104,3810,1,0,0:0:0:0:",
-    "389,104,3891,1,0,0:0:0:0:",
-    "391,105,4053,1,0,0:0:0:0:",
-    "277,137,4216,2,0,L|359:182,1,70",
-    "277,137,4540,2,0,L|359:175,1,70",
-    "420,109,4783,1,0,0:0:0:0:",
-    "412,104,4864,1,0,0:0:0:0:",
-    "420,109,5026,1,0,0:0:0:0:",
-    "420,109,5189,1,0,0:0:0:0:",
-    "420,109,5351,1,0,0:0:0:0:"
-]
+# Load reference from file
+reference_file_path = 'reference.osu'
+reference_hit_objects = load_reference_from_file(reference_file_path)
 
-
-cut_reference = reference[:15]
-
-middle_reference = reference[10:20]
-
-find_pattern_in_files(reference)
+find_pattern_in_files(reference_hit_objects)

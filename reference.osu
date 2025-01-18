@@ -1,0 +1,84 @@
+osu file format v14
+
+[General]
+AudioFilename: audio.mp3
+AudioLeadIn: 0
+PreviewTime: -1
+Countdown: 0
+SampleSet: Normal
+StackLeniency: 0.7
+Mode: 0
+LetterboxInBreaks: 0
+WidescreenStoryboard: 0
+
+[Editor]
+DistanceSpacing: 2.3
+BeatDivisor: 4
+GridSize: 32
+TimelineZoom: 2.799999
+
+[Metadata]
+Title:b
+TitleUnicode:b
+Artist:a
+ArtistUnicode:a
+Creator:Emilly
+Version:c
+Source:
+Tags:
+BeatmapID:0
+BeatmapSetID:-1
+
+[Difficulty]
+HPDrainRate:5
+CircleSize:5
+OverallDifficulty:5
+ApproachRate:5
+SliderMultiplier:1.4
+SliderTickRate:1
+
+[Events]
+//Background and Video events
+//Break Periods
+//Storyboard Layer 0 (Background)
+//Storyboard Layer 1 (Fail)
+//Storyboard Layer 2 (Pass)
+//Storyboard Layer 3 (Foreground)
+//Storyboard Layer 4 (Overlay)
+//Storyboard Sound Samples
+
+[TimingPoints]
+162,324.324324324324,4,1,0,100,1,0
+
+
+[HitObjects]
+297,189,162,5,0,0:0:0:0:
+297,189,243,1,0,0:0:0:0:
+297,189,324,1,0,0:0:0:0:
+334,159,486,1,0,0:0:0:0:
+357,131,648,5,0,0:0:0:0:
+357,131,810,1,0,0:0:0:0:
+277,137,972,2,0,L|361:183,1,70
+357,131,1297,1,0,0:0:0:0:
+357,131,1459,1,0,0:0:0:0:
+277,137,1621,2,0,L|350:175,1,70
+357,131,1945,1,0,0:0:0:0:
+376,107,2107,1,0,0:0:0:0:
+376,107,2270,1,0,0:0:0:0:
+376,107,2432,1,0,0:0:0:0:
+277,137,2594,2,0,L|356:177,1,70
+376,107,2918,1,0,0:0:0:0:
+376,107,3080,1,0,0:0:0:0:
+277,137,3243,2,0,L|369:180,1,70
+376,107,3567,1,0,0:0:0:0:
+389,104,3729,1,0,0:0:0:0:
+389,104,3810,1,0,0:0:0:0:
+389,104,3891,1,0,0:0:0:0:
+391,105,4053,1,0,0:0:0:0:
+277,137,4216,2,0,L|359:182,1,70
+277,137,4540,2,0,L|359:175,1,70
+420,109,4783,1,0,0:0:0:0:
+412,104,4864,1,0,0:0:0:0:
+420,109,5026,1,0,0:0:0:0:
+420,109,5189,1,0,0:0:0:0:
+420,109,5351,1,0,0:0:0:0:
