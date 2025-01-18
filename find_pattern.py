@@ -66,14 +66,14 @@ def parse_hitobjects_from_file(file_path):
 def load_reference_from_file(file_path):
     return parse_hitobjects_from_file(file_path)
 
-def find_pattern_in_files(reference):
-    print(f"Loading reference pattern with {len(reference)} hit objects...")
+def find_rhythm_in_files(reference):
+    print(f"Loading reference rhythm with {len(reference)} hit objects...")
     print(f"Timing leeway: {leeway}ms")
     time_differences_from_reference = calculate_time_differences(reference)
     
-    print(f"Loading all osu files in {osu_directory}...")
+    print(f"Loading all osu maps in {osu_directory}...")
     osu_files = traverse_files(osu_directory, file_extension)
-    print(f"Scanning {len(osu_files)} osu files for pattern...")
+    print(f"Scanning {len(osu_files)} osu maps for rhythm...")
     start_time = datetime.now()
     for i, file_path in enumerate(osu_files):
         if i % 1000 == 0 and i > 0:
@@ -107,4 +107,4 @@ def find_pattern_in_files(reference):
 reference_file_path = 'reference.osu'
 reference_hit_objects = load_reference_from_file(reference_file_path)
 
-find_pattern_in_files(reference_hit_objects)
+find_rhythm_in_files(reference_hit_objects)

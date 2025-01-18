@@ -1,8 +1,8 @@
 # FindMapFromPattern
-Scans your osu maps to see if you have any maps that matches the reference pattern using the time difference between objects with a default leeway of +-1ms
+Scans your osu! maps to see if you have any maps that matches the reference rhythm using the time difference between objects with a default leeway of +-1ms to account for osu! rounding errors.
 
 # Example usecase
-Recreate the pattern in the osu editor and then copy the contents of the .osu file into the reference
+Recreate the rhythm in the osu! editor and then copy the contents of the .osu file into reference.osu in the same directory as the script
 ## Reference pattern
 https://github.com/user-attachments/assets/70faa5ad-22cb-4dab-8ff6-e58295d501e8
 
