@@ -5,7 +5,7 @@ Scans your osu! maps to see if you have any maps that matches the reference rhyt
 Recreate the rhythm in the osu! editor and then copy the contents of the .osu file into reference.osu in the same directory as the script
 ## Reference rhythm
 It does not care about the type, which means that you can even substitude slider ends with hit circles if you want \
-https://github.com/user-attachments/assets/70faa5ad-22cb-4dab-8ff6-e58295d501e8
+[![Reference rhythm](https://github.com/user-attachments/assets/70faa5ad-22cb-4dab-8ff6-e58295d501e8)](https://github.com/user-attachments/assets/70faa5ad-22cb-4dab-8ff6-e58295d501e8)
 
 ## Running the program
 ```bash
@@ -15,4 +15,4 @@ python find_pattern.py
 
 ## Result
 Side by side comparison \ 
-https://github.com/user-attachments/assets/1e0c8ed9-598a-4f8b-b5cb-a6ed919a522b
+[![Result](https://github.com/user-attachments/assets/1e0c8ed9-598a-4f8b-b5cb-a6ed919a522b)](https://github.com/user-attachments/assets/1e0c8ed9-598a-4f8b-b5cb-a6ed919a522b)
